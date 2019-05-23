@@ -93,7 +93,7 @@ x(t) = v_0 t \cos \alpha
 y(t) = v_0 t \sin \alpha - \frac{gt^2}{2} + h
 \end{equation}
 
-Dalje ćemo odrediti koje su korodinate tačke gde se dostiže najveća visina, a potom,
+Dalje ćemo odrediti koje su koordinate tačke gde se dostiže najveća visina, a potom,
 gde se dostiže najdalji domet koji kosi hitac može da ima.
 
 
@@ -119,7 +119,7 @@ H_{y} = \frac{v_0^2 \sin^2 \alpha}{2g} + h
 
 Da bismo počeli sa određivanjem opasne zone, makar po $y$ kooridnati, 
 potreno je rešiti za koji ugao $\alpha$ se dostiže maksimum? 
-Kako nam je u jednačini \ref{eq:Hy} jedina promenjiva ugao, 
+Kako nam je u jednačini \ref{eq:Hy} jedina promenljiiva ugao, 
 to je očigledno kada sinus ima najveću vrenost,
 a to je za $\alpha_{max} = \frac{\pi}{2}$ uzevši u obzir ograničenje 
 da $\alpha \in [0, \pi]$. Onda je, uvrštavanjem ovog ugla u \ref{eq:Hy}
@@ -145,15 +145,19 @@ Radi jednostavnijeg zapisa u daljem tekstu $H_{max}$ označavaće $H^{max}_y$.
 \subsection{Maksimalni domet}
 \label{sec:max_domet}
 Odredimo koji je domet kamena izbačenog pod uglom $\alpha$, početnom brzinom $v_0$ sa 
-vulkana visine $h$, odnosno trenutak kada pada na zemlju. Označimo tu tačku sa $D = x(t)$.
-Iz ovog uslova važi da je $y(t) = 0$. Iz jednačina \ref{eq:kosi_hitac_x}  i 
-\ref{eq:kosi_hitac_y} imamo:
-$$ D = v_0t \cos \alpha $$
-$$ 0 = v_0 t \sin \alpha - \frac{gt^2}{2} + h $$
-Kada izrazimo $t$ iz prve i uvrstimo u drugu, pri čemu ikoristimo da je 
-$1/\cos^2\alpha = 1+\tan^2\alpha$ i označimo sa $L = v_0^2/g$, imamo:
+vulkana visine $h$, odnosno trenutak kada pada na zemlju. 
+Eliminacijom $t$ iz jednačine \ref{eq:kosi_hitac_x} i njenim uvrštavanjem 
+\ref{eq:kosi_hitac_y} dobijamo jednačinu oblika $y=f(x)$, 
+pri tome ikoristimo da je $1/\cos^2\alpha = 1+\tan^2\alpha$ 
+i označimo $L = v_0^2/g$:
 \begin{equation}
-\label{eq:pocetak_sa_L}
+\label{eq:kosi_hitac_xy}
+y = - x^2\frac{1+\tan^2 \alpha}{2L} + x \tan \alpha + h
+\end{equation}
+Označimo tačku dometa sa $D = x$.
+Iz uslova da kamen treba da padne na zemlju važi da je $y = 0$, pa se dobija:
+\begin{equation}
+\label{eq:pocetak_sa_D}
 D \tan \alpha - D^2\frac{1+\tan^2 \alpha}{2L} + h = 0
 \end{equation}
 Rešavanjem ove jednačine po $D$ dobile bi se dve tačke preseka sa $x$-osom: jedno pozitivno
@@ -172,12 +176,13 @@ $$ \frac{dD}{d\alpha}\tan\alpha
 $$ \frac{dD}{d\alpha} = 
 \frac{D \sec^2\alpha(\frac{D}{L} \tan \alpha - 1)}
 {\tan\alpha-\frac{D}{L}(1 + \tan^2 \alpha)} $$
-Ovaj izraz dostiže svoj maksimum kada je $\frac{dD}{d\alpha} = 0$, odnosno kada je izraz
+Iz ove jednačine $D$ dostiže svoj maksimum za neki ugao $\alpha$ 
+kada je $\frac{dD}{d\alpha} = 0$, odnosno kada je izraz
 sa desne strane 0. Maksimum dometa se dostiže za:
 $$ D_{max} \sec^2 \alpha (\frac{D_{max}}{L} \tan \alpha - 1) = 0 $$
 $$ \frac{D_{max}}{L}\tan\alpha-1 = 0 $$
 $$ \tan \alpha = \frac{L}{D_{max}} $$
-Sada dobijeni $\tan \alpha$ zamenimo u formulu \ref{eq:pocetak_sa_L} i dobijamo:
+Sada dobijeni $\tan \alpha$ zamenimo u formulu \ref{eq:pocetak_sa_D} i dobijamo:
 $$ L - \frac{D_{max}^2}{2L} - \frac{L}{2} + h = 0 $$
 $$ D_{max} = \sqrt{L^2 + 2Lh} $$
 Dakle, tačka najdaljeg dometa je:
@@ -201,7 +206,6 @@ na slici \ref{fig:parabola} vide tačke $H^{max}$ i $D^{max}$ najdaljeg dometa p
 kooridnatnim osama.
 
 
-
 \section{Opasna oblast}
 \label{sec:opasna_oblast}
 U delu \ref{sec:max_visina} i \ref{sec:max_domet} izveli smo koje su najdalje tačke dometa
@@ -209,17 +213,6 @@ po $y$ ($H^{max}$ jednačine \ref{eq:Hmax_x} i \ref{eq:Hmax_y}),
 odnosno po $x$-osi ($D^{max}$ \ref{eq:Dmax_x} i \ref{eq:Dmax_y}). 
 Potpuno simetrično u odnosu na $y$-osu, kamen može biti ispaljen ka negativnom delu
 $x$-ose, pa je tada njegov maksimalni domet $-D^{max}$.\\
-
-Formirajući parabolu $y = ax^2 + bx + c$ kroz ove tri tačke: 
-$-D^{max}$, $H^{max}$ i $D^{max}$, dobijamo koeficijente $a$, $b$ i $c$ 
-i krivu koja će opisati nebezbednu oblast:
-\begin{equation}
-\label{eq:parabola_oblasti}
-y=-\frac{H_{max}}{D^2_{max}}x^2 + H_{max}
-\end{equation} %TODO ograniciti na y = 0
-Ova parabola prikazana na slici \ref{fig:parabola} predstavlja 
-graničnu liniju koju opisuje kosi hitac kada se parametar $\alpha$
-provarira u intervalu $[0,\pi]$. K\^od ove slike opisan je u delu \ref{kod:2D_oblast}.\\
 
 \begin{figure}[h!]
 \begin{center}
@@ -229,20 +222,75 @@ provarira u intervalu $[0,\pi]$. K\^od ove slike opisan je u delu \ref{kod:2D_ob
 \label{fig:parabola}
 \end{figure}
 
+Varirajući ugao $\alpha$ dobijamo različite parabole, kao što je prikazano na slici 
+\ref{fig:parabola}. Da bismo odredili sigurnu zonu potrebno je odrediti 
+obvojnicu\footnote{Linija L koja u svakoj tački dodiruje samo jednu 
+liniju familije krivih K, pri čemu u različitim tačkama dodiruje različite krive, 
+zove se \textit{obvojnica} linija K.}
+oko ove familije parabola.
+Poznato je iz diferencijalne geometrije da se obvojnica neke familije ravanskih krivih
+dobija kao rešenje sledećeg sistema jednačina:
+\begin{equation}
+\label{eq:obvojnica1}
+F(x,y,a) = 0
+\end{equation}
+\begin{equation}
+\label{eq:obvojnica2}
+\frac{\partial F(x,y,a)}{\partial a} = 0
+\end{equation}
+
+U našem slučaju $F(x,y,a)$ je kriva \ref{eq:kosi_hitac_xy}, a parametar $a$ ugao $\alpha$.
+Odnosno imamo sistem:
+\begin{equation}
+\label{eq:sistem1}
+y + x^2\frac{1+\tan^2 \alpha}{2L} - x \tan \alpha - h = 0
+\end{equation}
+\begin{equation}
+\label{eq:sistem2}
+\frac{\partial F(x,y,\alpha)}{\partial \alpha} = 0
+\end{equation}
+Rešavajući prvo \ref{eq:sistem2} dobija se:
+$$ x^2\frac{\tan \alpha\frac{1}{\cos^2 \alpha}}{L} - \frac{x}{\cos^2 \alpha} = 0 $$
+odakle je $x$ koordinata obvojnice:
+\begin{equation}
+\label{eq:obvojnica_x}
+x = \frac{L}{\tan \alpha}
+\end{equation}
+Uvrštavajući ovo $x$ u prvu jednačinu sistema \ref{eq:sistem1} dobija se i $y$ kooridnata
+obvojnice:
+\begin{equation}
+\label{eq:obvojnica_y}
+y = h + \frac{L}{2} - \frac{L}{2 \tan \alpha}
+\end{equation}
+
+Da bismo dobili jednačinu obvojnice paraboli kosog hica sa parametrom $\alpha$, iz
+\ref{eq:obvojnica_x} izrazićemo $\tan \alpha$ i uvrstiti u \ref{eq:obvojnica_y},
+pri čemu je $h + L/2 = H_{max}$: 
+\begin{equation}
+\label{eq:obvojnica_kriva}
+y = H_{max} - \frac{x^2}{2L}
+\end{equation}
+
+Ovim je pokazano da je obvojnica takođe jedna parabola. Na slici \ref{fig:parabola}
+vidi se njen grafik i da ona zaista jeste granična kriva opasne oblasti vulkana.
+K\^od ove slike opisan je u delu \ref{kod:2D_oblast}.\\
+
+
 Kako kamen može biti ispaljen u ma kojem pravcu, rotacijom dobijene parabole oko
 $y$-ose dobija se paraboloid koji opisuje nebezbedan prostor oko vulkana.
 Uvrštavanjem tačke maksimuma i prečnika oblasti u podnožju u jednačinu paraboloida
 $ 2p(z-z_0) = (x-x_0)^2 + (y-y_0)^2 $ dobija se tražena površ:
 \begin{equation}
+\label{eq:paraboloid1}
+z = H_{max} - \frac{1}{2L} (x^2 + y^2)
+\end{equation}
+a kako je $1/(2L) = H_{max}/D^2_{max}$, možemo ovu oblast zapisati preko
+maksimalnih tačaka dometa po koordinatnim osama koje smo izračunali u 
+\ref{sec:max_domet} i \ref{sec:max_visina}:
+\begin{equation}
 \label{eq:paraboloid}
 \boxed{z = H_{max} - \frac{H_{max}}{D^2_{max}} (x^2 + y^2)}
 \end{equation}
-
-Na slici \ref{fig:paraboloid} prikazana je ova površ kao i zona u podnožju.
-Za nekoliko uglova ($\pi, \frac{\pi}{1.8}, \frac{\pi}{2}, \frac{\pi}{4}, 
-\frac{\pi}{6} $) iscrtane su trajektorije kamenja koje u jednoj tački dodiruju
-površ, ali je nikada ne presecaju. K\^{o}d za generisanje slike dat je u dodatku
-\ref{kod:oblast}.\\
 
 \begin{figure}[h!]
 \begin{center}
@@ -251,6 +299,12 @@ površ, ali je nikada ne presecaju. K\^{o}d za generisanje slike dat je u dodatk
 \caption{Opasna zona sa nekoliko trajektorija kamenja}
 \label{fig:paraboloid}
 \end{figure}
+
+Na slici \ref{fig:paraboloid} prikazana je ova površ kao i zona u podnožju.
+Za nekoliko uglova ($\pi, \frac{\pi}{1.8}, \frac{\pi}{2}, \frac{\pi}{4}, 
+\frac{\pi}{6} $) iscrtane su trajektorije kamenja koje u jednoj tački dodiruju
+površ, ali je nikada ne presecaju. K\^{o}d za generisanje slike dat je u dodatku
+\ref{kod:oblast}.\\
 
 Kada je $z=0$ u jednačini \ref{eq:paraboloid} dobija se očekivana opasna zona 
 u podnožju vulkana - krug poluprečnika
@@ -264,7 +318,7 @@ x^2 + y^2 = D^2_{max}
 \label{sec:zakljucak}
 U ovom radu predstavljen je jedan način za određivanje opasne zone oko vulkana koji
 izbacuje užareno kamenje. Data je formulacija problema i nekoliko pretpostavki koje su 
-napravljena radi lakšeg modeliranja, iskorišćen je ključni koncept kosog hica
+napravljene radi lakšeg modeliranja, iskorišćen je ključni koncept kosog hica
 za modelovanje trajektorije kamenja. Izvedene su formule ekstremnih tačaka 
 po $x$ i $y$ osi i iskorišćene za određivanje, prvo granice oblasti u
 $\mathbb{R}^2$, što je jedna parabola, a potom njeno proširenje na paraboloid u 
@@ -285,7 +339,9 @@ dati u dodatku.
 Pri izradi rada i proveri dobijenih jednačina korišćen je programski jezik 
 \verb|Python| i modul \verb|matplotlib|
 za sve slike i animacije koje se nalaze u radu. 
-Ovde će biti izloženi korišćeni kodovi uz kratka objašnjenja.
+Ovde će biti izloženi korišćeni kodovi uz kratka objašnjenja. 
+Svi kodovi takođe su dostupni na GitHub nalogu autora 
+\footnote{\url{https://github.com/daviddimic/opasna-zona-oko-vulkana}}.
 
 \subsection{Kosi hitac i granična parabola u ravni}
 \label{kod:2D_oblast}
@@ -298,7 +354,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 fig, ax = plt.subplots()
-
 # Parametri kosog hica
 g = 9.81
 v0 = 5
@@ -323,7 +378,6 @@ def plot_hitac(alpha):
     t = np.linspace(0, Dt, 100)
     x = v0*t*np.cos(alpha)
     y = v0*t*np.sin(alpha) - g*t**2/2 + h
-    
     # Tacke max visine i max dometa
     D = v0*np.cos(alpha)*Dt
     ax.plot(D, 0, 'o', label = 'D (%0.2g, %0.2g)' % (D, 0))
@@ -347,7 +401,6 @@ plot_hitac(np.pi/3)
 # Za ovaj ugao je maksimalni domet
 plot_hitac(np.arctan(1/np.sqrt(1+2*h*g/v0**2)))
 plot_hitac(np.pi/4)
-
 ax.legend(loc='upper right')
 plt.show()
 \end{minted}
@@ -368,7 +421,6 @@ import numpy as np
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 line, = ax.plot([], [], lw=2)
-
 # Podesavanja koordinatnih osa
 ax.set_xlim(-3, 3)
 ax.set_ylim(-3, 3)
@@ -434,7 +486,6 @@ plot_hitac(np.pi/2)
 plot_hitac(np.pi/4)
 plot_hitac(np.pi/6)
 plot_hitac(np.pi)
-
 ax.legend(loc='upper left')
 plt.show()
 \end{minted}
@@ -443,7 +494,9 @@ plt.show()
 \subsection{Animacija}
 \label{kod:animacija}
 Sledeći primer k\^{o}da prikazuje da je dobijena nebezbedna oblast zaista tačno rešenje
-datog problema. Svi parametri kosog hica su fiksirani osim ugla $\alpha \in [0,\pi]$ 
+datog problema 
+\footnote{\url{https://raw.githubusercontent.com/daviddimic/opasna-zona-oko-vulkana/master/img/vulkan_animation.mp4}}. 
+Svi parametri kosog hica su fiksirani osim ugla $\alpha \in [0,\pi]$ 
 koji je parametar animacije. Kosi hitac se iscrtava u $x$-$z$ ravni radi dobre 
 vidiljivosti, ali zbog simetrije, on može biti usmeren u bilo kom pravcu oko $z$-ose.
 Zbog dodatne jasnoće u istoj ravni sa kosim hicem iscrtana je i parabola koja
@@ -464,12 +517,10 @@ from matplotlib import animation
 fig = plt.figure(figsize=(12, 10))
 ax = fig.add_subplot(111, projection='3d')
 line, = ax.plot([], [], lw=2)
-
 # Podesavanja koordinatnih osa
 ax.set_xlim(-2, 2)
 ax.set_ylim(-2, 2)
 ax.set_zlim(0, 2)
-
 # Parametri kosog hica
 g = 9.81
 v0 = 3
@@ -499,7 +550,7 @@ def animate(i):
     t = np.linspace(0, Dt, 100)
     x = v0*t*np.cos(alpha)
     z = v0*t*np.sin(alpha) - g*t*t/2 + h
-
+    
     line.set_data(x, y)
     line.set_3d_properties(z)
     line.set_color('red')
@@ -511,7 +562,6 @@ anim = animation.FuncAnimation(fig, animate, init_func = init,
 plot_podnozje()
 plot_parabola()
 plot_paraboloid()
-
 ax.legend(loc='upper left')
 plt.show()
 \end{minted}
